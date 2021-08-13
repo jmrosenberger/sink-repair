@@ -24,7 +24,8 @@ mainContainer.addEventListener("click", click => {
 
 const convertRequestToListElement = (request) => {
     return ` 
-        <li>
+        <li class="request__list">&#128736; 	
+        &#128119;
             ${request.description}
             <button class="request__delete"
                     id="request--${request.id}">
@@ -48,7 +49,7 @@ export const Requests = () => {
     const requests = getRequests()
 
     let html = `
-        <ul>
+        <ul class="request__container">
             ${
                 requests.map(convertRequestToListElement).join("")
             }
