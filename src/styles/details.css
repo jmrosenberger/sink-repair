@@ -1,0 +1,23 @@
+.field {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 1.5rem;
+}
+
+.label {
+    font-size: 1.25rem;
+}
+
+.button {
+    color: olivedrab;
+    border-radius: 5px;
+    margin: 1.25rem 1.5rem;
+    border: 4px inset goldenrod;
+    
+}
+
+input {
+    border: 2px solid olivedrab;
+    border-radius: 3px;
+    background-color: rgb(218,165,32,.75)
+}
