@@ -13,6 +13,7 @@
     border-radius: 5px;
     margin: 1.25rem 1.5rem;
     border: 4px inset goldenrod;
+    font-size:large;
     
 }
 
@@ -20,4 +21,35 @@ input {
     border: 2px solid olivedrab;
     border-radius: 3px;
     background-color: rgb(218,165,32,.75)
+}
+
+
+
+.request__container {
+    border: 1.5px dotted olivedrab;
+    border-radius: 4px;
+    margin: 1.25rem 1.5rem;
+    padding: 0px;
+}
+
+.request__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.request__delete {
+    background: olivedrab;
+    color: goldenrod;
+    border: 1px inset goldenrod;
+    border-radius: 2px;
+}
+
+.request__list:nth-child(even) {
+    background: #ccc;
+}
+
+.request__list:nth-child(odd) {
+    background: #fff;
 }
