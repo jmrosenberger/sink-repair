@@ -1,15 +1,77 @@
 {
-    "plumbers": [],
-    "completions": [],
-    "requests": [
-        {
-            "id": 1,
-            "description": "Aut sint voluptatem fugit eius quas molestiae modi.",
-            "address": "34445 Bianka Ports",
-            "budget": 400,
-            "neededBy": "2021-08-27"
-        }
-    ]
+  "plumbers": [
+    {
+      "id": 1,
+      "name": "Maude"
+    },
+    {
+      "id": 2,
+      "name": "Merle"
+    }
+  ],
+  "requests": [
+    {
+      "id": 1,
+      "description": "Aut sint voluptatem fugit eius quas molestiae modi.",
+      "address": "34445 Bianka Ports",
+      "budget": 400,
+      "neededBy": "2021-08-27"
+    },
+    {
+      "description": "lollapallooza",
+      "address": "who knows",
+      "budget": "200.00",
+      "neededBy": "2021-08-14",
+      "id": 2
+    },
+    {
+      "description": "toilets stopped up",
+      "address": "1600 pennsylvania ave",
+      "budget": "200.00",
+      "neededBy": "2021-08-14",
+      "id": 3
+    },
+    {
+      "description": "toilet is still stopped up",
+      "address": "1600 pennsylvania avenue",
+      "budget": "20000000000.99",
+      "neededBy": "2021-08-14",
+      "id": 21
+    },
+    {
+      "description": "please stop plugging my toilet",
+      "address": "1600 pennsylvania avenue",
+      "budget": "20.00",
+      "neededBy": "2021-08-16",
+      "id": 22
+    },
+    {
+      "description": "toilet issues, caused by bowel issues, caused by dietary issues",
+      "address": "1600 pennsylvania avenue",
+      "budget": "10.00",
+      "neededBy": "2021-08-14",
+      "id": 23
+    },
+    {
+      "description": "test",
+      "address": "test",
+      "budget": "2",
+      "neededBy": "2021-08-14",
+      "id": 24
+    },
+    {
+      "description": "another test.",
+      "address": "1600 pennsylvania avenue",
+      "budget": "20.00",
+      "neededBy": "2021-08-14",
+      "id": 25
+    }
+  ],
+  "completions": [
+    {
+      "id": 1,
+      "requestId": 1,
+      "plumberId": 1
+    }
+  ]
 }
-
-

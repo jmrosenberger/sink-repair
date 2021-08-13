@@ -34,7 +34,7 @@ export const Requests = () => {
     let html = `
         <ul>
             ${
-                requests.map(convertRequestToListElement)
+                requests.map(convertRequestToListElement).join("")
             }
         </ul>
     `
