@@ -6,6 +6,7 @@ const applicationState = {
 
 }
 
+const mainContainer = document.querySelector("#container")
 
 
 
@@ -38,20 +39,19 @@ export const getRequests = () => {
 
 
 
+export const sendRequest = (userServiceRequest) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userServiceRequest)
+    }
 
-// export const sendRequest = (userServiceRequest) => {
-//     const fetchOptions = {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(userServiceRequest)
-//     }
 
-
-//     return fetch(`${API}/requests`, fetchOptions)
-//         .then(response => response.json())
-//         .then(() => {
-//             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-//         })
-// }
+    return fetch(`${API}/requests`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        })
+}
