@@ -55,3 +55,15 @@ export const sendRequest = (userServiceRequest) => {
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
         })
 }
+
+
+
+
+export const deleteRequest = (id) => {
+    return fetch(`${API}/requests/${id}`, { method: "DELETE" })
+        .then(
+            () => {
+                mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
+}

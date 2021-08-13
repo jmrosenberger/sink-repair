@@ -1,7 +1,15 @@
-import { getRequests } from "./dataAccess.js"
+import { getRequests, deleteRequest } from "./dataAccess.js"
 
 
 
+const mainContainer = document.querySelector("#container")
+
+mainContainer.addEventListener("click", click => {
+    if (click.target.id.startsWith("request--")) {
+        const [,requestId] = click.target.id.split("--")
+        deleteRequest(parseInt(requestId))
+    }
+})
 
 
 
@@ -15,15 +23,23 @@ import { getRequests } from "./dataAccess.js"
 
 
 const convertRequestToListElement = (request) => {
-    return ` <li>
+    return ` 
+        <li>
             ${request.description}
-            </li>
-            `
+            <button class="request__delete"
+                    id="request--${request.id}">
+                Delete
+            </button>
+        </li>
+    `
 }
 
 
 // For example, if you write a function named convertRequestToListElement, 
 // then you would update the code below to requests.map(convertRequestToListElement).
+
+
+
 
 
 
