@@ -55,9 +55,11 @@ export const fetchCompletions = () => {
 
 
 export const getRequests = () => {
-    return applicationState.requests
-    // .map(request => ({...request}))
+    return applicationState.requests.sort( (request, boolean) => (request.isComplete === true) ? 1 : -1 )
 }
+
+
+
 
 export const getPlumbers = () => {
     return applicationState.plumbers

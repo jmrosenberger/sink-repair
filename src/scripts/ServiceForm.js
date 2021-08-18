@@ -1,4 +1,4 @@
-import { sendRequest } from "./dataAccess.js"
+import { sendRequest, getCompletions } from "./dataAccess.js"
 
 
 const mainContainer = document.querySelector("#container")
@@ -11,14 +11,26 @@ mainContainer.addEventListener("click", clickEvent => {
         const userBudget = document.querySelector("input[name='serviceBudget']").value
         const userDate = document.querySelector("input[name='serviceDate']").value
 
-        // Make an object out of the user input
+        // const jobCompleted = () => {
+        //     const completions = getCompletions()
+    
+        //     for (completion of completions) {
+        //         if (completion.plumberId > 0) {
+        //             return true
+        //         } else {
+        //             return false
+        //         }
+        //     }
+        // }
         const dataToSendToAPI = {
-            description: userDescription,
-            address: userAddress,
-            budget: userBudget,
-            neededBy: userDate
-        }
-
+                description: userDescription,
+                address: userAddress,
+                budget: userBudget,
+                neededBy: userDate,
+                // isComplete: jobCompleted(),
+    }
+    // Make an object out of the user input
+    
         // Send the data to the API for permanent storage
         sendRequest(dataToSendToAPI)
     }

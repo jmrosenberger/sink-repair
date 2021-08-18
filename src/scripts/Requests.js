@@ -25,12 +25,25 @@ mainContainer.addEventListener(
                    1. requestId
                    2. plumberId
                    3. date_created
-            */
-            const completion = { 
-                requestId: parseInt(requestId),
-                plumberId: parseInt(plumberId),
-                date_created: new Date()
-            }
+                   */
+                  const completions = getCompletions()
+                  const completion = { 
+                      requestId: parseInt(requestId),
+                      plumberId: parseInt(plumberId),
+                      isCompleted: function() {
+                        
+                            for (completion of completions) {
+                                if (completion.plumberId > 0) {
+                                    return true
+                                } else {
+                                    return false
+                                }
+                            }
+                        },
+                        date_completed: new Date()
+                    }
+                
+                    
 
             /*
                 Invoke the function that performs the POST request
@@ -44,6 +57,10 @@ mainContainer.addEventListener(
 
 
 
+
+
+
+// isComplete: jobCompleted(),
 
 
 // In the following code, you will need to define the function that will be passed to the map() method.
