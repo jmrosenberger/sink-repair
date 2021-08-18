@@ -2,8 +2,9 @@
 
 
 const applicationState = {
-    requests: []
-
+    requests: [],
+    plumbers: [],
+    completions: []
 }
 
 const mainContainer = document.querySelector("#container")
@@ -12,7 +13,7 @@ const mainContainer = document.querySelector("#container")
 
 
 
-const API = "http://localhost:8088"
+const API = "http://localhost:8062"
 
 
 export const fetchRequests = () => {
@@ -26,13 +27,46 @@ export const fetchRequests = () => {
         )
 }
 
+export const fetchPlumbers = () => {
+    return fetch(`${API}/plumbers`)
+        .then(response => response.json())
+        .then(
+            (plumberList) => {
+                // Store the external state in application state
+                applicationState.plumbers = plumberList
+            }
+        )
+}
+
+export const fetchCompletions = () => {
+    return fetch(`${API}/completions`)
+        .then(response => response.json())
+        .then(
+            (serviceCompletions) => {
+                // Store the external state in application state
+                applicationState.completions = serviceCompletions
+            }
+        )
+}
+
 
 
 
 
 
 export const getRequests = () => {
-    return applicationState.requests.map(request => ({...request}))
+    return applicationState.requests
+    // .map(request => ({...request}))
+}
+
+export const getPlumbers = () => {
+    return applicationState.plumbers
+    // .map(plumber => ({...plumber}))
+}
+
+export const getCompletions = () => {
+    return applicationState.completions
+    // .map(completion => ({...completion}))
 }
 
 
@@ -50,6 +84,42 @@ export const sendRequest = (userServiceRequest) => {
 
 
     return fetch(`${API}/requests`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        })
+}
+
+
+export const sendPlumber = (plumberSelected) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(plumberSelected)
+    }
+
+
+    return fetch(`${API}/plumbers`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        })
+}
+
+
+export const sendCompletion = (jobCompleted) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(jobCompleted)
+    }
+
+
+    return fetch(`${API}/completions`, fetchOptions)
         .then(response => response.json())
         .then(() => {
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
